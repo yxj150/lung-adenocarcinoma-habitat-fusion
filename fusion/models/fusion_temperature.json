@@ -1,0 +1,13 @@
+{
+  "T": 0.45,
+  "fitted_on": "Train",
+  "criterion": "RPS",
+  "grid": [
+    0.4,
+    4.0,
+    73
+  ],
+  "note": "post-hoc calibration of the 5:3:2 weighted soft-voting fusion; applied unchanged to the weight-sensitivity and ablation analyses (04b / 04c)",
+  "source": "04_fusion.py",
+  "model": "5:3:2 weighted soft voting"
+}

@@ -1,0 +1,6 @@
+- Final feature set (7): Tumor_Markers, SCG, Morphology, Air_Bronchogram, Pleural_Tag, LD_mm, CTmean
+
+Algorithms: LR / SVM(RBF) / RF / XGBoost, 5-fold stratified CV tuning.
+Best model (Internal_Val macro AUC): RF
+
+Macro AUC (OvR) per dataset:

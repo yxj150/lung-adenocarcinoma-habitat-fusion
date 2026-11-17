@@ -1,0 +1,21 @@
+FINAL CLINICAL MODEL (deployed in the 5:3:2 fusion) - Random Forest
+==================================================================
+Selection: best Internal-validation macro AUROC among
+LR / SVM(RBF) / RF / XGBoost -> Random Forest.
+
+Final feature set (7, after univariate screening + multinomial LASSO
+C = 0.01, 1-SE rule):
+  Tumor_Markers, SCG, Morphology, Air_Bronchogram, Pleural_Tag, LD_mm, CTmean
+
+Final hyperparameters (5-fold stratified CV, random_state = 42):
+  RandomForestClassifier(
+      n_estimators     = 500,
+      max_depth        = 6,
+      min_samples_leaf = 5,
+      max_features     = 'sqrt',
+      class_weight     = 'balanced',
+      random_state     = 42)
+
+Reference performance (macro one-vs-rest AUROC):
+  Train 0.8631 | Internal validation 0.8478 |
+  External validation 1 0.7983 | External validation 2 0.8586
