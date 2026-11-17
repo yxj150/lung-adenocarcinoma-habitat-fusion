@@ -56,13 +56,9 @@ deep_learning/
                                         HU clip [-1000, 400] -> [0, 1]
   train_r3d18.py                        model definitions (Net), training loop
                                         and evaluation for the DL branch
-  inference_reference_gradcampp.py      reference inference code: loads the
-                                        five checkpoints, rebuilds the Net,
-                                        computes ensemble probabilities and
-                                        Grad-CAM++ maps
   weights/model_seed{42,123,2024,3407,777}.pth
                                         the five final checkpoints (~133 MB
-                                        each; host with Git LFS or Zenodo)
+                                        each, stored via Git LFS)
 
 fusion/
   fusion_model.py                       5:3:2 weighted soft voting + post-hoc
@@ -114,12 +110,13 @@ pip install torch==2.8.0 torchvision --index-url https://download.pytorch.org/wh
    signature and its per-class LASSO coefficients
    (`models/final_14feature_lasso_coefficients.csv`).
 3. **Deep learning** — `deep_learning/preprocess_64cube.py` builds the
-   64³ cache; `deep_learning/train_r3d18.py` defines and trains the model.
-   The deployed ensemble uses the five shipped checkpoints
-   (`deep_learning/weights/`); per-case probabilities are the mean softmax
-   over the five seeds with 8-flip test-time augmentation
-   (`inference_reference_gradcampp.py` shows exactly how the checkpoints are
-   loaded and applied).
+   64³ cache; `deep_learning/train_r3d18.py` defines and trains the model
+   (the `Net` class in that file is exactly the architecture of the shipped
+   checkpoints). The deployed ensemble uses the five shipped checkpoints
+   (`deep_learning/weights/`); to apply them, load each checkpoint with
+   `torch.load(pth, weights_only=False)` and restore its `state_dict` into
+   `Net('r3d18')`; per-case probabilities are the mean softmax over the
+   five seeds with 8-flip test-time augmentation.
 4. **Fusion** — `fusion/fusion_model.py` combines the three components'
    class probabilities with weights 0.5 / 0.3 / 0.2 and applies the shipped
    temperature `T = 0.45` (`models/fusion_temperature.json`, criterion RPS,
@@ -128,6 +125,13 @@ pip install torch==2.8.0 torchvision --index-url https://download.pytorch.org/wh
    metrics (one-vs-rest AUROC slightly, RPS and calibration) are affected.
 
 ## Notes
+
+* The five `.pth` checkpoints total ≈ 650 MB. For GitHub, push them via
+  **Git LFS**, or deposit them in a Zenodo repository and link it here.
+* Patient-level data (imaging + clinical tables) are available from the
+  corresponding author under reasonable request, per the data-availability
+  statement of the manuscript.
+
 
 * The five `.pth` checkpoints total ≈ 650 MB. For GitHub, push them via
   **Git LFS**, or deposit them in a Zenodo repository and link it here.
