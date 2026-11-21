@@ -1,0 +1,15 @@
+Feature,LASSO_Coef_class1,LASSO_Coef_class2,LASSO_Coef_class3,AbsMax_Coef
+peri_hab2_original_shape_Maximum2DDiameterRow,0.0,0.0,0.24903391080552179,0.24903391080552179
+peri_hab1_original_shape_SurfaceArea,0.0,0.0,0.1528180782638955,0.1528180782638955
+intra_hab1_original_shape_MinorAxisLength,0.0,0.0,0.1144987142531454,0.1144987142531454
+peri_hab2_original_shape_Sphericity,0.0,0.0,-0.11440676721105003,0.11440676721105003
+intra_hab1_voxel_fraction,0.0,0.0,-0.09840599599587863,0.09840599599587863
+peri_hab2_original_glcm_MCC,0.0,0.0,-0.09216734881565591,0.09216734881565591
+intra_hab2_original_glszm_HighGrayLevelZoneEmphasis,0.0,0.0,0.08565121648720592,0.08565121648720592
+intra_hab1_original_shape_LeastAxisLength,0.0,0.0,0.05743168764732954,0.05743168764732954
+intra_hab2_original_firstorder_MeanAbsoluteDeviation,-0.045658721323833015,0.0,0.0,0.045658721323833015
+peri_hab2_original_glcm_DifferenceEntropy,-0.04527423011003219,0.0,0.02485669351422742,0.04527423011003219
+peri_hab3_original_shape_Maximum3DDiameter,0.0,0.0,0.044366706699422595,0.044366706699422595
+intra_hab2_original_glszm_GrayLevelVariance,-0.04017877619970326,0.0,0.0,0.04017877619970326
+intra_hab2_original_glcm_ClusterTendency,-0.03030691803781566,0.0,0.018194181048074083,0.03030691803781566
+intra_hab2_original_glcm_SumSquares,-0.021217847919171657,0.0,0.0,0.021217847919171657
